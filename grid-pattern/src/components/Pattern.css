@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container for the whole screen */
+.mgg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #1f2937; /* gray-800 */
+  padding: 1rem;
+  width: 100%;
+}
+
+/* Controls container (inputs + buttons) */
+.mgg-controls {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Label text */
+.mgg-controls label {
+  color: #f3f4f6; /* gray-100 */
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Input fields for rows/columns */
+.mgg-controls input[type="number"] {
+  width: 4rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+  border: 2px solid #22c55e; /* green border */
+  background-color: #111827; /* dark background */
+  color: #22c55e; /* green text */
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.mgg-controls input[type="number"]:focus {
+  outline: none;
+  border-color: #16a34a; /* darker green */
+  box-shadow: 0 0 6px #16a34a80;
+}
+
+/* Buttons for start, pause, generate */
+.mgg-controls button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid #22c55e;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #111827; /* dark background */
+  color: #22c55e; /* green text */
+  transition: all 0.2s ease-in-out;
+}
+
+.mgg-controls button:hover {
+  background-color: #22c55e; /* green background */
+  color: #111827; /* dark text */
+  box-shadow: 0 0 8px #22c55e80;
+}
+
+/* Grid wrapper */
+.mgg-grid {
+  display: inline-block;
+  border: 4px solid #22c55e; /* green border */
+  max-width: 100%;
+  overflow-x: auto; /* scroll on small screens */
+}
+
+/* Each row */
+.mgg-row {
+  display: flex;
+}
+
+/* Each cell */
+.mgg-cell {
+  flex: 1 1 auto; /* grow/shrink to fit screen */
+  aspect-ratio: 1 / 1; /* keep square shape */
+  min-width: 1.8rem;   /* minimum size for small screens */
+  max-width: 3.5rem;   /* max size on large screens */
+  border: 1px solid #374151; /* gray-700 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.15s;
+}
+
+/* Colors */
+.mgg-green { background-color: #22c55e; }
+.mgg-red { background-color: #dc2626; }
+.mgg-blue { background-color: #2563eb; }
+.mgg-gray { background-color: #111827; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mgg-controls input[type="number"],
+  .mgg-controls button {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+}
